@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  <meta charset="utf-8">
+  <meta charset=utf-8>
   <title>Skrotförädling</title>
   <link href="main.css" rel="stylesheet" type="text/css">
   </head>
@@ -12,10 +12,24 @@
   <h1>Hjälp naturen och lämna elektronik avfall hos oss</h1>
   <div class="inputSection">
     <div class="inputs">
-      <input placeholder="Kabel och elskrot hemma?"></input>
+      <input placeholder="Skriv vilken typ av skrot vill du bli av med?"></input>
     </div>
-  <button class="addOption">Ja</button>
+  <button class="addOption">Lägg till!</button>
   </div>
-  <button>Nej</button>
+  <div class="resultSection"></div>
+  <button>Svara!</button>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script>
+    $(function() {
+      $('.resultSection').hide()
+
+      var add_option = function() {
+        $('.inputs').append('<input></input>')
+      }
+
+      $('.addOption').click(add_option)
+    })
+  </script>
   </body>
 </html>
