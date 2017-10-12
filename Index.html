@@ -14,10 +14,10 @@
     <div class="inputs">
       <input placeholder="Skriv vilken typ av skrot vill du bli av med?"></input>
     </div>
-  <button class="addOption">Lägg till!</button>
+  <button class="addOption">Lägg till rad!</button>
   </div>
   <div class="resultSection"></div>
-  <button>Svara!</button>
+  <button class="submit">Svara!</button>
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script>
@@ -27,8 +27,20 @@
       var add_option = function() {
         $('.inputs').append('<input></input>')
       }
-
       $('.addOption').click(add_option)
+
+      var options = []
+      var submit = function() {
+        $('.inputSection').hide()
+        $('.resultSection').css('display','flex')
+        $('input').each(function() {
+          options.push($(this).val())
+        })
+        var winner = options [Math.floor(Math.random() * options.length)]
+        console.log(winner)
+        $('.resultSection').text(winner)
+      }
+      $('.submit').click(submit)
     })
   </script>
   </body>
